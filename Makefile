@@ -1,15 +1,15 @@
 SHELL := /bin/bash
 
 # components repos
-GODWOKEN_REPO := https://github.com/nervosnetwork/godwoken.git
+GODWOKEN_REPO := https://github.com/zzhengzhuo/godwoken.git
 GODWOKEN_SCRIPTS_REPO := https://github.com/nervosnetwork/godwoken-scripts.git
-POLYJUICE_REPO := https://github.com/nervosnetwork/godwoken-polyjuice.git
+POLYJUICE_REPO := https://github.com/zzhengzhuo/godwoken-polyjuice.git
 CLERKB_REPO := https://github.com/nervosnetwork/clerkb.git
 
 # components tags
-GODWOKEN_REF := v0.10.2
+GODWOKEN_REF := godwoken-dev
 GODWOKEN_SCRIPTS_REF := v0.8.4
-POLYJUICE_REF := v0.8.10-aot
+POLYJUICE_REF := email_validate_advanced
 CLERKB_REF := v0.4.0
 
 define prepare_repo
@@ -39,8 +39,8 @@ build-components: prepare-repos
 build-push:
 	make build-components
 	@read -p "Please Enter New Image Tag: " VERSION ; \
-	docker build . -t nervos/godwoken-prebuilds:$$VERSION ; \
-	docker push nervos/godwoken-prebuilds:$$VERSION
+	docker build . -t zzhengzhuo/godwoken-prebuilds:$$VERSION ; \
+	docker push zzhengzhuo/godwoken-prebuilds:$$VERSION
 
 test:
 	make build-components
